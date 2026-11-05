@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="320" viewBox="0 0 1200 320" role="img" aria-labelledby="title desc">
-  <title id="title">Ray Content Skills article workflow</title>
-  <desc id="desc">Plan and draft a technical article, polish it, then choose GitHub Pages publication or a WeChat draft.</desc>
-  <rect width="1200" height="320" fill="#F5F2EA"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="390" viewBox="0 0 1200 390" role="img" aria-labelledby="title desc">
+  <title id="title">Ray Content Skills workflow</title>
+  <desc id="desc">Plan and draft a technical article, polish it, then choose GitHub Pages publication or a WeChat draft. Obsidian Markdown is an independent note-writing skill.</desc>
+  <rect width="1200" height="390" fill="#F5F2EA"/>
   <g font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" fill="#18212A">
     <text x="58" y="52" font-size="15" font-weight="600" letter-spacing="2" fill="#6C7780">RAY CONTENT SKILLS / ARTICLE WORKFLOW</text>
     <text x="58" y="101" font-size="34" font-weight="650">从选题到成稿，再选择发布去向</text>
@@ -37,5 +37,10 @@
   <g fill="none" stroke="#365F78" stroke-width="2">
     <path d="M336 214 l8 6 -8 6 M630 214 l8 6 -8 6 M666 184 l8 6 -8 6 M666 252 l8 6 -8 6"/>
   </g>
-  <text x="58" y="292" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="13" fill="#6C7780">作者确认提纲与发布动作；微信草稿保存不等于群发。</text>
+  <line x1="58" y1="330" x2="1142" y2="330" stroke="#C8CED1" stroke-width="1"/>
+  <g font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif">
+    <text x="58" y="362" font-size="15" font-weight="650" fill="#18212A">独立使用</text>
+    <text x="151" y="362" font-size="14" fill="#365F78">ray-obsidian-markdown · 编辑 Obsidian 笔记</text>
+    <text x="1142" y="362" text-anchor="end" font-size="13" fill="#6C7780">作者确认发布动作；微信草稿不等于群发。</text>
+  </g>
 </svg>

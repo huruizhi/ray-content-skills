@@ -5,7 +5,7 @@
 Use the skills individually, or follow the path below. They help structure the article and its evidence; they do not replace the author's judgment or publish without an explicit request.
 
 <p align="center">
-  <img src="./assets/readme/content-workflow.svg" width="100%" alt="Ray Content Skills workflow: plan the article, write and polish it, then publish to GitHub Pages or save a WeChat draft">
+  <img src="./assets/readme/content-workflow.svg" width="100%" alt="Article workflow with independent GitHub Pages and WeChat draft destinations, plus ray-obsidian-markdown for standalone Obsidian notes">
 </p>
 
 ## Workflow
