@@ -1,0 +1,4 @@
+interface:
+  display_name: "发布 GitHub Pages Blog"
+  short_description: "将公众号技术文章同步发布到 Jekyll GitHub Pages"
+  default_prompt: "使用 $ray-publish-github 将新的公众号文章先适配为 Blog 草稿并完成本地验证；得到明确发布授权后，再发布到 GitHub Pages 并做线上回读。"
