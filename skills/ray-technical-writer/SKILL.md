@@ -1,11 +1,11 @@
 ---
 name: ray-technical-writer
-description: "Plan and write natural Chinese WeChat articles about technical concepts, products, systems, and engineering questions, with outline confirmation before drafting when source material or structure is non-trivial."
+description: "Plan, write, and revise Chinese technical blog and WeChat articles, with outline review, ray-tone editing, and lieflat-less-ai-tone checks before final delivery."
 ---
 
-# Technical WeChat Writer
+# Technical Article Writer
 
-Use this skill when the user wants a Chinese technical WeChat article, a rewrite of technical material, or an engineering explanation. It supports technical introductions and technical analyses without imposing a fixed persona, opinion, article length, or ending.
+Use this skill when the user wants a Chinese technical blog or WeChat article, a rewrite of technical material, or an engineering explanation. It supports technical introductions and technical analyses without imposing a fixed persona, opinion, article length, or ending.
 
 Do not use this skill for Markdown typesetting, cover generation, or WeChat publishing. Those are separate steps and require the user's explicit request.
 
@@ -35,6 +35,8 @@ Before outlining, separate the input into four layers:
 Record which source supports each important claim and mark gaps that the article must preserve.
 
 ### 3. Present the outline and wait for confirmation
+
+For an existing draft whose requested changes are limited to wording and clarity, use its current structure and main judgment as the agreed scope and proceed to editing. Request outline review only when the requested revision changes the article's structure or main thread.
 
 For non-trivial article generation from source material or a topic, do not write the full article immediately. A request is non-trivial when it involves multiple technical concepts, sources, sections, examples, or a judgment about use and boundaries; a request to turn a long knowledge note into a public-account article is non-trivial by default. This review gate applies to technical introductions, technical analyses, and source rewrites unless the user has already supplied a confirmed outline or explicitly asked to skip outlining.
 
@@ -66,15 +68,33 @@ If the user requests changes to the outline, revise the outline and wait for con
 
 ### 4. Draft after outline confirmation
 
+Read and apply [ray-tone](../ray-tone/SKILL.md) before drafting or revising. If this dependency is unavailable, report the missing skill rather than claiming to have applied it.
+
 Write the Chinese article from the approved outline and material ledger. Start from a concrete observation, question, change, or scene. Keep the paragraphs in the approved order and use headings only where they reduce navigation cost.
 
 If the work is a source rewrite, retain supported facts and remove source framing the user asks to omit, such as references to a video. Do not turn reported information into the author's personal experience.
 
-### 5. Review and save
+### 5. Optimize the draft with ray-tone
 
-Read the draft once as a reader and remove paragraphs that exist only because a template expects them. Confirm that the title, summary, source link, and cover path match the article when those fields are present.
+Use `ray-tone` to review information order, explanation gaps, paragraph relationships, and natural Chinese. Remove paragraphs that exist only because a template expects them. Preserve supported facts, technical terms, code, quotations, evidence links, uncertainty, and the approved main thread. Keep structural changes within the agreed outline or editing scope.
 
-When working in a project with an established article source directory, save the confirmed source there only after the outline has been confirmed and the draft has passed review. Keep English intermediate material out of the article source.
+Complete this overall editing pass before starting Lieflat detection; the two skills serve separate stages rather than competing rule lists in a single rewrite.
+
+### 6. Check the finished draft with Lieflat
+
+Read and follow [lieflat-less-ai-tone](../lieflat-less-ai-tone/SKILL.md), including its detection protocol and semantic criteria. It requires its accompanying `scripts/` and `references/`; if the dependency or required resources are missing, report the incomplete check and do not claim the draft passed it.
+
+Use a working copy of the draft for detection. Preserve the before JSON and semantic judgments, then give the user a report with locatable original passages, metrics, proposed edits, and reasons for retaining or excluding candidates. Distinguish research-level differences from findings in this draft; a hit does not establish AI authorship.
+
+Wait for the user's response to the proposed edits before rewriting. Reuse approval already given for those reported edits instead of asking twice; a request to draft an article alone does not approve unseen cleanup suggestions. Apply accepted edits minimally, rerun detection, and deliver the before-and-after report. Retain author style and meaningful distinctions; do not mechanically change normal expressions or chase reference values. Keep the approved structure and follow Lieflat's report-only, human-review, and rejected-rule boundaries.
+
+The detection report is an intermediate deliverable, not the final revised article. If the user declines cleanup, keep the ray-tone-edited draft and state that choice. Keep working drafts and detection artifacts separate from the final article source.
+
+### 7. Review and save the final article
+
+Read the final article in context to verify that local edits preserve meaning and flow. Confirm that the title, summary, source link, and cover path match the article when those fields are present. If this final review requires further edits, rerun the affected checks before claiming completion.
+
+When working in a project with an established article source directory, save the final source there after the applicable outline, editing, and Lieflat review steps are complete. Use the existing draft's agreed scope for wording-only revisions. Keep English intermediate material out of the article source.
 
 Use the project's frontmatter convention:
 
@@ -114,7 +134,7 @@ Do not render HTML, generate images, upload a draft, or send the article unless 
 - The Chinese should read like a person explaining a thing, not a translated essay or product announcement.
 - Conclusions should not repeat the introduction.
 - Keep uncertainty, hesitation, and judgment when they are real.
-- Avoid automatic phrases such as「首先、其次、最后」「在当今时代」「值得注意的是」「综上所述」.
+- Review stock openings, transitions, and endings in context; remove them when they add no information. Normal sequencing such as「首先、其次、最后」is not by itself evidence of AI tone.
 - Avoid repeated contrastive templates when the user asks for direct explanation, including「不是……而是……」.
 
 Current user instructions override these defaults. Apply explicit restrictions such as title requirements, first-person perspective, omitted source references, or prohibited sentence patterns, then review the finished article for compliance.

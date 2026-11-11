@@ -30,7 +30,7 @@ description: Publish or synchronize WeChat-derived technical articles to an exis
 
 ## 文章适配
 
-文章需要实质改写时，先读取并使用 `ray-technical-writer`；只修 front matter、链接或资源路径时不必启动写作流程。
+文章需要实质改写时，先读取并使用 [ray-technical-writer](../ray-technical-writer/SKILL.md)：按适用范围确认大纲或既有稿件的修改范围，完成起草、`ray-tone` 整体优化、`lieflat-less-ai-tone` 检测，以及用户接受建议后的局部修改、复测与前后对照。复用已完成的检查和用户对相应建议的授权；适配过程再次实质改写正文时，重新检查改动后的稿件。依赖缺失时明确报告尚未完成的环节，不能宣称文风检查通过。只修 front matter、链接或资源路径时不必启动文风检查流程。
 
 1. 明确本次要同步的文章集合。优先用 Blog front matter 的 `wechat_source` 对照源文件；历史文章没有该字段时，再结合源文件编号、日期、来源 URL、标题和正文证据推断。若“最近一篇”很可能已经上线，先报告对应文章并确认是准备更新稿，还是改选下一篇未同步文章，不得直接生成重复文章。
 2. 为 Blog 文章补齐 Jekyll front matter：

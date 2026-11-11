@@ -1,7 +1,7 @@
 interface:
-  display_name: "Technical WeChat Writer"
-  short_description: "Write natural Chinese technical WeChat articles"
-  default_prompt: "Use $ray-technical-writer to write a natural Chinese technical WeChat article from my topic or source material."
+  display_name: "Technical Article Writer"
+  short_description: "Write Chinese blog articles with tone review and Lieflat checks"
+  default_prompt: "Use $ray-technical-writer to write a Chinese technical blog or WeChat article from my material, apply ray-tone, and report Lieflat findings before cleanup."
 
 policy:
   allow_implicit_invocation: true
